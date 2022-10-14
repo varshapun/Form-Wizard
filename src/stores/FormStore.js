@@ -40,6 +40,14 @@ export const useFormStore = defineStore("FormStore", {
       v$.value.$touch();
       if (v$.value.$error) {
         Swal.fire("Error", "Please Enter Properly", "error");
+      } else {
+        Swal.fire("success", "successfully submitted form", "success").then(
+          (result) => {
+            if (result.value) {
+              window.location.reload();
+            }
+          }
+        );
       }
     },
   },
